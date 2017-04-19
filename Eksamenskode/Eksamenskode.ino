@@ -52,16 +52,16 @@ void BluetoothAction(){
       lcd.print("Lav Oevelse 5");
       lcd.setCursor(0, 1);
       lcd.print("Gentag 10 Gange");
-    }else if(data
+    }//else if(data
 }
 void loop() {
-  BluetoothAction();
-  delay(Interval);
+  // delay(Interval);
   data="a";
+  delay(500);
   bluetooth.listen();
-  bluetooth.print(data);
   BluetoothAction();
-  
+  bluetooth.print(data);
+  Serial.print(data);
   
 
   

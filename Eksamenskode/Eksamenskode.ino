@@ -1,8 +1,6 @@
-
 #include<SoftwareSerial.h>
 // include the library code:
-#include <LiquidCrystal.h>
-
+#include<LiquidCrystal.h>
 // initialize the library with the numbers of the interface pins
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 
@@ -23,47 +21,17 @@ void setup() {
   lcd.begin(16, 2);
   
 }
-void BluetoothAction(){  
-  if(bluetooth.available()){ 
-    data=(char)bluetooth.read();
-    } 
-    if(data="1"){
-      lcd.setCursor(0, 0);
-      lcd.print("Lav Oevelse 1");
-      lcd.setCursor(0, 1);
-      lcd.print("Gentag 8 Gange");
-    }else if(data="2"){
-      lcd.setCursor(0, 0);
-      lcd.print("Lav Oevelse 2");
-      lcd.setCursor(0, 1);
-      lcd.print("Gentag 5 Gange");
-    }else if(data="3"){
-      lcd.setCursor(0, 0);
-      lcd.print("Lav Oevelse 3");
-      lcd.setCursor(0, 1);
-      lcd.print("Gentag 5 Gange");
-    }else if(data="4"){
-      lcd.setCursor(0, 0);
-      lcd.print("Lav Oevelse 4");
-      lcd.setCursor(0, 1);
-      lcd.print("Gentag 5 Gange");
-    }else if(data="5"){
-      lcd.setCursor(0, 0);
-      lcd.print("Lav Oevelse 5");
-      lcd.setCursor(0, 1);
-      lcd.print("Gentag 10 Gange");
-    }//else if(data
-}
+
 void loop() {
   // delay(Interval);
-  data="a";
+  data='a';
   delay(500);
   bluetooth.listen();
-  BluetoothAction();
-  bluetooth.print(data);
+  bluetooth.println(data);
+  bluetoothAction();
   Serial.print(data);
-  
-
+  lcd.setCursor(0, 1);
+  lcd.print(data);
   
  /* lcd.print("Send ");
   lcd.print(millis()/1000);
@@ -72,4 +40,37 @@ void loop() {
   lcd.setCursor(0, 1);
     lcd.print(" nudes plz :)");*/
     
+}
+void bluetoothAction(){  
+      lcd.setCursor(0, 0);
+      lcd.print("Fuck");
+  //if(bluetooth.available()){ 
+    //data=(char)bluetooth.read();
+    //} 
+    if(data=='1'){
+      lcd.setCursor(0, 0);
+      lcd.print("Lav Oevelse 1");
+      lcd.setCursor(0, 1);
+      lcd.print("Gentag 8 Gange");
+    }else if(data=='2'){
+      lcd.setCursor(0, 0);
+      lcd.print("Lav Oevelse 2");
+      lcd.setCursor(0, 1);
+      lcd.print("Gentag 5 Gange");
+    }else if(data=='3'){
+      lcd.setCursor(0, 0);
+      lcd.print("Lav Oevelse 3");
+      lcd.setCursor(0, 1);
+      lcd.print("Gentag 5 Gange");
+    }else if(data=='4'){
+      lcd.setCursor(0, 0);
+      lcd.print("Lav Oevelse 4");
+      lcd.setCursor(0, 1);
+      lcd.print("Gentag 5 Gange");
+    }else if(data=='5'){
+      lcd.setCursor(0, 0);
+      lcd.print("Lav Oevelse 5");
+      lcd.setCursor(0, 1);
+      lcd.print("Gentag 10 Gange");
+    }//else if(data
 }
